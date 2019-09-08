@@ -60,7 +60,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+     dotspacemacs-additional-packages '()
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -313,7 +313,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
   )
 
 
-
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
@@ -322,10 +321,15 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
+
+  ;;disable cursor line highlighting
+  (spacemacs/toggle-highlight-current-line-globally-off)
+
   )
 
 
- 
+
+
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -356,4 +360,8 @@ you should place your code here."
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
 ;; load the arduino mode.
-(load "arduino-mode") 
+(load "arduino-mode")
+
+
+
+
