@@ -403,8 +403,8 @@ you should place your code here."
  '(default ((t (:background "#1c1c1c" :foreground "#d7d7d7")))))
 
 ;;set screen transparency by default startup
-(set-frame-parameter (selected-frame) 'alpha '(97 . 94))
-(add-to-list 'default-frame-alist '(alpha . (97 . 94)))
+;;(set-frame-parameter (selected-frame) 'alpha '(97 . 94))
+;;(add-to-list 'default-frame-alist '(alpha . (97 . 94)))
 
 ;; Tell emacs where is your personal elisp lib dir
 (add-to-list 'load-path "~/.emacs.d/lisp/")
@@ -429,3 +429,18 @@ you should place your code here."
   (interactive)
   (insert "printf(\"\");")
   (backward-char 3))
+
+(defun insert-cpp-MainClass ()
+  (interactive)
+  (insert "#include <iostream>")
+  (insert"\n\n\n")
+  (insert"namespace st = std;")
+  (insert"\n\n\n\n")
+  (insert"int main()")
+  (insert"\n{")
+  (insert"\n\n\n")
+  (insert"\t\treturn 0;")
+  (insert"\n\n}")
+  )
+
+(windmove-default-keybindings)
