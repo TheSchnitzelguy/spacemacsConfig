@@ -431,20 +431,22 @@ you should place your code here."
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;functions and routines
+;;functions and routines for programming
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;; Java printLine
 (defun insert-java-PrintLine ()
 (interactive)
 (insert "System.out.println(\"\");")
 (backward-char 3))
 
-
+;; C/C++ printf
 (defun insert-printf ()
   (interactive)
   (insert "printf(\"\");")
   (backward-char 3))
 
+;; C++ main() template
 (defun insert-cpp-MainClass ()
   (interactive)
   (insert "#include <iostream>")
@@ -459,5 +461,20 @@ you should place your code here."
   )
 
 
+;; Generic for-loop
+(defun forLoop (x) "insert a for loop"
+       (interactive "s amount of iterations:")
+       (insert "for(int i = 0; i< " x "; i++)\n{\n\n\n}")
+       (backward-char 2)
+       (iwb)
 
-;;(display-line-numbers-mode)
+ )
+
+
+;; Generic while-loop
+(defun whileLoop (x) "insert a while loop"
+       (interactive "s while condition:")
+       (insert "while(" x ")\n{\n\n}")
+       (backward-char 2)
+       (iwb)
+  )
