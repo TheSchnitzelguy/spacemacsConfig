@@ -270,7 +270,7 @@ values."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers 'relative
+  ;;dotspacemacs-line-numbers 'relative ;; DON'T USE THIS SETTING, this setting makes use of the deprecated linum package that borks zooming
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
    dotspacemacs-folding-method 'evil
@@ -316,6 +316,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (setq spacemacs-theme-comment-bg nil)
   (setq c-default-style "bsd"
         c-basic-offset 4)
+
+  (global-display-line-numbers-mode t)
+  (setq-default display-line-numbers t)
 
   )
 
@@ -406,7 +409,7 @@ you should place your code here."
 ;;(set-frame-parameter (selected-frame) 'alpha '(97 . 94))
 ;;(add-to-list 'default-frame-alist '(alpha . (97 . 94)))
 
-;; Tell emacs where is your personal elisp lib dir
+;; Tell emacs where your personal elisp library directory is
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
 ;; load the arduino mode.
@@ -415,9 +418,21 @@ you should place your code here."
 ;; load the kotlin mode.
 (load "kotlin-mode")
 
-
+;; disable smartparens (\'|\' when ' )
 (setq-default sp-escape-quotes-after-insert nil)
 
+
+;; move frames around with keybindings
+(windmove-default-keybindings)
+
+;; bind mousewheel to text zoom in/out
+(global-set-key [C-mouse-4] 'text-scale-increase)
+(global-set-key [C-mouse-5] 'text-scale-decrease)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;functions and routines
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun insert-java-PrintLine ()
 (interactive)
@@ -443,4 +458,6 @@ you should place your code here."
   (insert"\n\n}")
   )
 
-(windmove-default-keybindings)
+
+
+;;(display-line-numbers-mode)
