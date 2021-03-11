@@ -439,13 +439,15 @@ you should place your code here."
 (defun insert-java-PrintLine ()
 (interactive)
 (insert "System.out.println(\"\");")
-(backward-char 3))
+(backward-char 3)
+)
 
 ;; C/C++ printf
 (defun insert-printf ()
   (interactive)
   (insert "printf(\"\");")
-  (backward-char 3))
+  (backward-char 3)
+  )
 
 ;; C++ main() template
 (defun insert-cpp-MainClass ()
@@ -468,8 +470,7 @@ you should place your code here."
        (insert "for(int i = 0; i< " x "; i++)\n{\n\n\n}")
        (backward-char 2)
        (iwb)
-
- )
+       )
 
 
 ;; Generic while-loop
@@ -478,4 +479,22 @@ you should place your code here."
        (insert "while(" x ")\n{\n\n}")
        (backward-char 2)
        (iwb)
-  )
+       )
+
+
+;; C/C++ std include statement
+(defun incStd (x) "Insert a include statement for a default header"
+       (interactive "s library to import:")
+       (insert "#include <"x">\n")
+       (iwb)
+       )
+
+
+
+;; C/C++ std include statement
+(defun incNorm (x) "Insert a include statement for a custom library"
+       (interactive "s library to import:")
+       (insert "#include \""x"\"\n")
+       (iwb)
+       )
+
