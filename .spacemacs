@@ -69,7 +69,7 @@ values."
     ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '(evil-search-highlight-persist) 
+   dotspacemacs-excluded-packages '(evil-search-highlight-persist smartparens-mode) 
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
    ;; `used-only' installs only explicitly used packages and uninstall any
@@ -351,7 +351,14 @@ you should place your code here."
 
 )
 
+(defun toggle-search-pattern-highlight ()
+  "Toggle the previous search patterns highlight On or Off."
+  (interactive)
+  (if (evil-ex-hl-active-p 'evil-ex-search)
+      (evil-ex-nohighlight)
+    (evil-ex-search-activate-highlight evil-ex-search-pattern)))
 
+(global-set-key (kbd "<f8>") 'toggle-search-pattern-highlight)
 
 
 ;; Do not write anything past this comment. This is where Emacs will
